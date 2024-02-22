@@ -4,8 +4,10 @@
     --black:rgb(0, 0, 0);
     --white:rgb(255, 255, 255);
     --green:rgb(127, 219, 127);
-    --gray: rgba(185, 185, 185, 0.76);
-    --red: rgba(255, 0, 0, 0.856);
+    --gray: rgb(185, 185, 185, 0.76);
+    --red: rgb(255, 0, 0, 0.856);
+    --poorGray: rgb(224, 224, 224);
+    --blue: rgb(36, 120, 231);
 }
 
 body {
@@ -113,3 +115,31 @@ body {
     font-size: 10px;
     color: var(--white);
 }
+/* Стилі для футера */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--poorGray); 
+    padding: 10px 0; 
+    text-align: center;
+}
+
+.footer a {
+    color: var(--red); 
+    text-decoration: none; 
+    transition: color 0.3s; 
+    display: inline-block; 
+}
+
+.footer a:hover {
+    color: var(--blue); 
+    animation: rotateLink 1s linear forwards; 
+}
+
+@keyframes rotateLink {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
