@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;700&display=swap');
+
+:root {
+    --black:rgb(0, 0, 0);
+    --white:rgb(255, 255, 255);
+    --green:rgb(127, 219, 127);
+    --gray: rgba(185, 185, 185, 0.76);
+    --red: rgba(255, 0, 0, 0.856);
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,192 +16,100 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-color: var(--green);
 }
 
 .calculator-container {
-    background-color: #fff;
+    background-color: var(--white);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px var(--black);
     text-align: center;
     max-width: 400px;
     width: 100%;
+    line-height: 1.6; 
+}
+
+/* Стиль заголовка */
+.calculator-container h1 {
+    color: var(--black);
+    font-size: 24px;
+    margin-bottom: 20px; 
 }
 
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px; 
     text-align: left;
 }
 
 .input-group label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--black);
 }
 
-.input-group input[type="number"] {
-    width: calc(100% - 30px);
-    padding: 8px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-}
-
+/* Стиль введення числа та повзунка */
+.input-group input[type="number"],
 .input-group input[type="range"] {
-    width: calc(100% - 20px);
+    width: calc(100% - 30px);
+    height: 40px;
     margin-top: 5px;
-}
-
-#submit-btn {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#submit-btn:hover {
-    background-color: #45a049;
-}
-
-.result {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* Додано стилі для підписів полів та загального оформлення форми */
-label {
-    font-weight: bold;
-}
-
-input[type="number"],
-input[type="range"],
-#submit-btn {
-    margin-top: 5px;
-}
-
-input[type="number"],
-input[type="range"],
-#submit-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
     box-sizing: border-box;
 }
 
-input[type="number"],
-input[type="range"] {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #f4f4f4;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background-color: #4caf50;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
-    background-color: #4caf50;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-input[type="number"]:focus,
-input[type="range"]:focus {
-    outline: none;
-    border-color: #4caf50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-}
-
+/* Стиль кнопки */
 #submit-btn {
-    background-color: #4caf50;
-    color: #fff;
+    background-color: var(--green);
+    color: var(--white);
     border: none;
     padding: 10px 20px;
-    border-radius: 3px;
+    border-radius: 5px; 
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease, font-size 0.5s ease, letter-spacing 0.5s ease; 
+    font-size: 14px; 
+    letter-spacing: 0; 
 }
 
 #submit-btn:hover {
-    background-color: #45a049;
+    background-color: var(--green);
+    font-size: 21px; 
+    letter-spacing: 1px;
 }
 
-.result {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
+/* Стиль підказок */
 .input-hint {
-    font-size: 12px;
-    color: #666;
-    margin-top: 5px;
+    font-size: 14px;
+    color: var(--black);
+    margin-top: 15px;
+}
+/* Стиль кнопки, коли вона не активна */
+#submit-btn:disabled {
+    background-color: var(--red); 
+    cursor: not-allowed;
 }
 
-.calculator-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
+#submit-btn:disabled:hover {
+    background-color: var(--red); 
 }
 
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-    position: relative;
-}
-
-.input-group label {
+/* Стиль тексту кнопки, коли вона не активна */
+#submit-btn:disabled::before {
+    content: "Введіть коректні значення в полях, щоб ";
     display: block;
-    margin-bottom: 5px;
-    color: #333;
+    font-size: 14px;
+    color: var(--white);
 }
 
-.input-group input[type="number"] {
-    width: calc(100% - 30px);
-    padding: 8px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-}
-
-.input-group input[type="range"] {
-    width: calc(100% - 20px);
+#submit-btn:disabled:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
     margin-top: 5px;
-}
-
-#submit-btn {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#submit-btn:hover {
-    background-color: #45a049;
-}
-
-.result {
-    margin-top: 20px;
-    font-weight: bold;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: var(--white);
 }

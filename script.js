@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // Всі рядки в середині цієї функції виконуються, коли DOM готовий.
     const loanAmountInput = document.getElementById('loan-amount');
     const loanAmountSlider = document.getElementById('loan-amount-slider');
     const repaymentPeriodInput = document.getElementById('repayment-period');
@@ -10,9 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function calculateRepayments() {
         const loanAmount = parseFloat(loanAmountInput.value);
         const repaymentPeriod = parseInt(repaymentPeriodInput.value);
+
+        // const interestRate = 2.2;: Встановлює відсоткову ставку на день.
         const interestRate = 2.2;
 
+        // (interestRate / 100): Визначає відсоткову ставку у відсотках.
+        // (loanAmount * (interestRate / 100) * repaymentPeriod): Обчислює суму відсотків, яку потрібно сплатити за весь період погашення.
+        // loanAmount + (loanAmount * (interestRate / 100) * repaymentPeriod): Додає цю суму до початкової суми позики, щоб отримати загальну суму, яку потрібно сплатити.
+        // const dailyRepayment = (loanAmount + (loanAmount * (interestRate / 100) * repaymentPeriod)) / repaymentPeriod;: Обчислює денну суму погашень за допомогою формули, DR = (LA + (LA * (IR / 100) * RP)) / RP.
         const dailyRepayment = (loanAmount + (loanAmount * (interestRate / 100) * repaymentPeriod)) / repaymentPeriod;
+
+        // repaymentPeriod: Розділяє загальну суму на кількість днів у періоді погашення, щоб отримати денну суму погашень.
+        // const totalRepayment = dailyRepayment * repaymentPeriod;: Обчислює загальну суму погашення, яка дорівнює денній сумі погашень, помноженій на кількість днів у періоді погашення.
         const totalRepayment = dailyRepayment * repaymentPeriod;
 
         resultDiv.innerHTML = `
@@ -21,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
+    // Для відображення повідомлень про помилки у випадку некоректного вводу.
     function displayErrorMessages() {
         if (loanAmountInput.validity.valueMissing) {
             loanAmountInput.setCustomValidity('Введіть суму кредиту');
