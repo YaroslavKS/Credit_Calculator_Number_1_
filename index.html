@@ -15,14 +15,14 @@
     <form id="loan-form">
         <div class="input-group">
             <label for="loan-amount">Сума кредиту:</label>
-            <input type="number" id="loan-amount" min="1000" max="50000" step="1" placeholder="Введіть суму кредиту" required>
-            <input type="range" id="loan-amount-slider" min="1000" max="50000" step="1">
+            <input type="number" id="loan-amount" min="1000" max="50000" step="100" placeholder="Введіть суму кредиту" value="10000" required>
+            <input type="range" id="loan-amount-slider" min="1000" max="50000" step="100" value="10000">            
             <div class="input-hint">Мін: <strong>1000</strong> грн, Макс: <strong>50000</strong> грн</div>
         </div>
         <div class="input-group">
             <label for="repayment-period">Період погашення (днів):</label>
-            <input type="number" id="repayment-period" min="7" max="60" step="1" placeholder="Введіть період погашення" required>
-            <input type="range" id="repayment-period-slider" min="7" max="60" step="1">
+            <input type="number" id="repayment-period" min="7" max="60" step="1" placeholder="Введіть період погашення" value="30" required>
+            <input type="range" id="repayment-period-slider" min="7" max="60" step="1" value="30">
             <div class="input-hint">Мін: <strong>7</strong> днів, Макс: <strong>60</strong> днів</div>
         </div>
         <button type="submit" id="submit-btn" disabled>Отримати кредит</button>
